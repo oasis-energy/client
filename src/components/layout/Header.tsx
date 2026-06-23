@@ -31,7 +31,7 @@ export function Header() {
             <span className="text-lg sm:text-xl lg:text-3xl font-extrabold tracking-tight font-heading whitespace-nowrap">
               <span className="text-[#1e3a8a]">Oasis</span> <span className="text-accent">Energy</span>
             </span>
-            <span className="hidden sm:block text-[0.65rem] lg:text-[0.85rem] font-medium text-muted-foreground -mt-0.5 tracking-wide whitespace-nowrap">
+            <span className="block text-[0.65rem] lg:text-[0.85rem] font-medium text-muted-foreground -mt-0.5 tracking-wide whitespace-nowrap">
               Let's grab the free energy
             </span>
           </div>

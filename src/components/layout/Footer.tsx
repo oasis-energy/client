@@ -25,7 +25,7 @@ export function Footer() {
                 <span className="text-xl md:text-3xl font-extrabold tracking-tight font-heading">
                   <span className="text-white">Oasis</span> <span className="text-emerald-400">Energy</span>
                 </span>
-                <span className="hidden sm:block text-[0.75rem] md:text-[0.85rem] font-medium text-white/70 -mt-0.5 tracking-wide">
+                <span className="block text-[0.75rem] md:text-[0.85rem] font-medium text-white/70 -mt-0.5 tracking-wide">
                   Let's grab the free energy
                 </span>
               </div>
