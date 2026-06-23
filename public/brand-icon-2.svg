@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gradLeft" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#0a1128"/></linearGradient>
+    <linearGradient id="gradRight" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#047857"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <!-- Left Hex Half -->
+    <path d="M 50 5 L 15 25 L 15 75 L 50 95 L 45 65 L 25 50 L 45 35 Z" fill="url(#gradLeft)" />
+    <!-- Right Hex Half -->
+    <path d="M 50 95 L 85 75 L 85 25 L 50 5 L 55 35 L 75 50 L 55 65 Z" fill="url(#gradRight)" />
+  </g>
+</svg>

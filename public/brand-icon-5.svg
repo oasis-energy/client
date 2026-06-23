@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="b" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#0a1128"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#047857"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.3"/></filter>
+    <path id="sweep" d="M 50 10 A 40 40 0 0 1 90 50 A 50 50 0 0 0 50 25 A 15 15 0 0 1 50 10 Z" />
+  </defs>
+  <g filter="url(#shadow)">
+    <use href="#sweep" fill="url(#b)" />
+    <use href="#sweep" fill="url(#g)" transform="rotate(90 50 50)" />
+    <use href="#sweep" fill="url(#b)" transform="rotate(180 50 50)" />
+    <use href="#sweep" fill="url(#g)" transform="rotate(270 50 50)" />
+  </g>
+</svg>
