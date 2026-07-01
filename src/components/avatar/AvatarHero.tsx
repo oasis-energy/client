@@ -20,7 +20,7 @@ export function AvatarHero() {
           src="/avatar/hero-turbine.jpg"
           alt="Avatar Wind Turbine Cinematic Background"
           fill
-          className="object-contain opacity-60"
+          className="object-cover object-center opacity-60"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90 mix-blend-multiply" />
