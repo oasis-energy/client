@@ -26,7 +26,7 @@ export function Footer() {
                   <span className="text-white">Oasis</span> <span className="text-emerald-400">Energy</span>
                 </span>
                 <span className="block text-[0.75rem] md:text-[0.85rem] font-medium text-white/70 -mt-0.5 tracking-wide">
-                  Let's grab the free energy
+                  Let&apos;s grab the free energy
                 </span>
               </div>
             </Link>
@@ -67,7 +67,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Solutions</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <Link href="/products/avatar" className="hover:text-accent transition-colors">Avatar Wind Turbines</Link>
+                <Link href="/avatar" className="hover:text-accent transition-colors text-emerald-500 font-medium">Avatar™ Wind Turbines</Link>
               </li>
               <li>
                 <Link href="/solutions/industrial" className="hover:text-accent transition-colors">Industrial Energy</Link>

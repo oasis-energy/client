@@ -5,11 +5,23 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { 
+  NavigationMenu, 
+  NavigationMenuList, 
+  NavigationMenuItem, 
+  NavigationMenuLink, 
+  navigationMenuTriggerStyle,
+  NavigationMenuTrigger,
+  NavigationMenuContent
+} from "@/components/ui/navigation-menu";
 
 export function Header() {
-  const routes = [
-    { name: "About", href: "/about" },
+  const aboutRoutes = [
+    { name: "About Us", href: "/about", description: "Learn about Oasis Energy's mission and vision." },
+    { name: "About Avatar™", href: "/avatar", description: "Discover the revolutionary Avatar™ wind turbines." },
+  ];
+
+  const mainRoutes = [
     { name: "Solutions", href: "/solutions" },
     { name: "Products", href: "/products" },
     { name: "Partners", href: "/partners" },
@@ -32,7 +44,7 @@ export function Header() {
               <span className="text-[#1e3a8a]">Oasis</span> <span className="text-accent">Energy</span>
             </span>
             <span className="block text-[0.65rem] lg:text-[0.85rem] font-medium text-muted-foreground -mt-0.5 tracking-wide whitespace-nowrap">
-              Let's grab the free energy
+              Let&apos;s grab the free energy
             </span>
           </div>
         </Link>
@@ -41,7 +53,41 @@ export function Header() {
         <div className="hidden xl:flex flex-1 justify-center">
           <NavigationMenu>
             <NavigationMenuList>
-              {routes.map((route) => (
+              
+              {/* About Dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>About</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {aboutRoutes.map((route) => (
+                      <li key={route.href}>
+                        <Link href={route.href} legacyBehavior passHref>
+                          <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-800 dark:focus:bg-slate-800">
+                            <div className={`text-sm font-medium leading-none ${route.name.includes("Avatar") ? "text-emerald-600 dark:text-emerald-400" : ""}`}>
+                              {route.name}
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400 mt-1">
+                              {route.description}
+                            </p>
+                          </NavigationMenuLink>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Standalone Avatar Link */}
+              <NavigationMenuItem>
+                <Link href="/avatar" legacyBehavior passHref>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-emerald-600 font-bold hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300`}>
+                    Avatar™
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              {/* Other Routes */}
+              {mainRoutes.map((route) => (
                 <NavigationMenuItem key={route.href}>
                   <Link href={route.href} legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -70,20 +116,43 @@ export function Header() {
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="p-6">
+            <SheetContent side="right" className="p-6 overflow-y-auto">
               <div className="flex flex-col space-y-6 mt-6">
                 <Link href="/" className="text-lg font-semibold border-b pb-2">
                   Home
                 </Link>
-                {routes.map((route) => (
+                
+                <div className="flex flex-col space-y-3">
+                  <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">About</span>
+                  {aboutRoutes.map((route) => (
+                    <Link
+                      key={route.href}
+                      href={route.href}
+                      className={`text-lg font-medium transition-colors hover:text-accent pl-2 ${route.name.includes("Avatar") ? "text-emerald-600" : ""}`}
+                    >
+                      {route.name}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="flex flex-col space-y-3 pt-4 border-t">
                   <Link
-                    key={route.href}
-                    href={route.href}
-                    className="text-lg font-medium transition-colors hover:text-accent"
+                    href="/avatar"
+                    className="text-lg font-bold text-emerald-600 transition-colors hover:text-emerald-700"
                   >
-                    {route.name}
+                    Avatar™
                   </Link>
-                ))}
+                  {mainRoutes.map((route) => (
+                    <Link
+                      key={route.href}
+                      href={route.href}
+                      className="text-lg font-medium transition-colors hover:text-accent"
+                    >
+                      {route.name}
+                    </Link>
+                  ))}
+                </div>
+
                 <div className="pt-4 border-t flex flex-col gap-3">
                   <Button variant="outline" asChild className="w-full justify-center h-12">
                     <Link href="/contact">Contact Us</Link>
