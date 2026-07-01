@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function SolarGridCard({ side, className, id }: VisitingCardProps) {
+export function SolarGridCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-[#f0f4f8] text-slate-900 relative overflow-hidden flex flex-col items-center justify-center shadow-lg border border-slate-200 ${className || ""}`}>
@@ -52,20 +52,20 @@ export function SolarGridCard({ side, className, id }: VisitingCardProps) {
           <div className="inline-block px-5 py-2 rounded-lg bg-[#1e3a8a] text-white font-bold tracking-widest text-xs mb-8 uppercase w-max shadow-md">
             Co-Founder
           </div>
-          <h1 className="text-6xl font-extrabold text-slate-900 mb-10 tracking-tight font-heading">Vinay Pratap<br/>Singh</h1>
+          <h1 className="text-6xl font-extrabold text-slate-900 mb-10 tracking-tight font-heading">{data.name.split(" ").length > 1 ? <>{data.name.split(" ")[0]}<br/>{data.name.split(" ").slice(1).join(" ")}</> : data.name}</h1>
           
           <div className="grid grid-cols-1 gap-6">
             <div className="flex items-center gap-5 text-slate-700 bg-white/60 p-3 rounded-lg border border-white backdrop-blur-sm w-max pr-8 shadow-sm">
               <Phone className="w-5 h-5 text-emerald-600" />
-              <span className="text-xl font-bold tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-bold tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700 bg-white/60 p-3 rounded-lg border border-white backdrop-blur-sm w-max pr-8 shadow-sm">
               <Mail className="w-5 h-5 text-emerald-600" />
-              <span className="text-xl font-bold tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-bold tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700 bg-white/60 p-3 rounded-lg border border-white backdrop-blur-sm w-max pr-8 shadow-sm">
               <Globe className="w-5 h-5 text-emerald-600" />
-              <span className="text-xl font-bold tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-bold tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ export function SolarGridCard({ side, className, id }: VisitingCardProps) {
               <InstagramIcon className="w-10 h-10 p-2.5 bg-white rounded-lg text-slate-500 shadow-sm border border-slate-100 hover:text-[#1e3a8a]" />
               <FacebookIcon className="w-10 h-10 p-2.5 bg-white rounded-lg text-slate-500 shadow-sm border border-slate-100 hover:text-[#1e3a8a]" />
             </div>
-            <span className="text-base font-bold text-[#1e3a8a] ml-2 tracking-wider">@oasisenergy</span>
+            <span className="text-base font-bold text-[#1e3a8a] ml-2 tracking-wider">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -92,7 +92,7 @@ export function SolarGridCard({ side, className, id }: VisitingCardProps) {
           
           <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-200 flex flex-col items-center">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={150} 
               level="H"
               fgColor="#1e3a8a"

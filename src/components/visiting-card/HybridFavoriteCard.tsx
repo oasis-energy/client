@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function HybridFavoriteCard({ side, className, id }: VisitingCardProps) {
+export function HybridFavoriteCard({ side, className, id, data }: VisitingCardProps) {
   // Front from Eco Modern
   if (side === "front") {
     return (
@@ -54,20 +54,20 @@ export function HybridFavoriteCard({ side, className, id }: VisitingCardProps) {
           <div className="inline-block px-4 py-1.5 rounded-sm bg-emerald-50 border-l-4 border-emerald-500 text-emerald-700 font-bold tracking-widest text-xs mb-6 uppercase w-max">
             Co-Founder
           </div>
-          <h1 className="text-6xl font-extrabold text-[#1e3a8a] mb-10 tracking-tight font-heading">Vinay Pratap<br/>Singh</h1>
+          <h1 className="text-6xl font-extrabold text-[#1e3a8a] mb-10 tracking-tight font-heading">{data.name.split(" ").length > 1 ? <>{data.name.split(" ")[0]}<br/>{data.name.split(" ").slice(1).join(" ")}</> : data.name}</h1>
           
           <div className="space-y-6">
             <div className="flex items-center gap-5 text-slate-600">
               <Phone className="w-5 h-5 text-emerald-500" />
-              <span className="text-xl font-medium tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-medium tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-600">
               <Mail className="w-5 h-5 text-emerald-500" />
-              <span className="text-xl font-medium tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-600">
               <Globe className="w-5 h-5 text-emerald-500" />
-              <span className="text-xl font-medium tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export function HybridFavoriteCard({ side, className, id }: VisitingCardProps) {
               <InstagramIcon className="w-5 h-5 text-slate-400" />
               <FacebookIcon className="w-5 h-5 text-slate-400" />
             </div>
-            <span className="text-base font-bold text-emerald-700 tracking-wider">@oasisenergy</span>
+            <span className="text-base font-bold text-emerald-700 tracking-wider">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export function HybridFavoriteCard({ side, className, id }: VisitingCardProps) {
             <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500" />
             <div className="p-4 pt-6">
               <QRCodeSVG 
-                value="https://www.oasis.energy" 
+                value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
                 size={150} 
                 level="H"
                 fgColor="#1e3a8a"

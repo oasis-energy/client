@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function TurbineEnergyCard({ side, className, id }: VisitingCardProps) {
+export function TurbineEnergyCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-slate-50 text-slate-900 relative overflow-hidden flex flex-col items-center justify-center shadow-lg border border-slate-200 ${className || ""}`}>
@@ -62,27 +62,27 @@ export function TurbineEnergyCard({ side, className, id }: VisitingCardProps) {
       <div className="flex-1 flex px-20 py-16 z-10 relative">
         {/* Left Side: Personal Info */}
         <div className="flex flex-col justify-center w-[55%]">
-          <h1 className="text-5xl font-extrabold text-[#1e3a8a] mb-2 tracking-tight font-heading">Vinay Pratap Singh</h1>
-          <h2 className="text-xl font-bold text-emerald-600 mb-12 tracking-[0.2em] uppercase">Co-Founder</h2>
+          <h1 className="text-5xl font-extrabold text-[#1e3a8a] mb-2 tracking-tight font-heading">{data.name}</h1>
+          <h2 className="text-xl font-bold text-emerald-600 mb-12 tracking-[0.2em] uppercase">{data.role}</h2>
           
           <div className="space-y-6">
             <div className="flex items-center gap-4 text-slate-600">
               <div className="bg-slate-50 p-2.5 rounded-full border border-slate-200 shadow-sm">
                 <Phone className="w-5 h-5 text-emerald-600" />
               </div>
-              <span className="text-xl font-medium tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-medium tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-4 text-slate-600">
               <div className="bg-slate-50 p-2.5 rounded-full border border-slate-200 shadow-sm">
                 <Mail className="w-5 h-5 text-emerald-600" />
               </div>
-              <span className="text-xl font-medium tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-4 text-slate-600">
               <div className="bg-slate-50 p-2.5 rounded-full border border-slate-200 shadow-sm">
                 <Globe className="w-5 h-5 text-emerald-600" />
               </div>
-              <span className="text-xl font-medium tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ export function TurbineEnergyCard({ side, className, id }: VisitingCardProps) {
             <LinkedinIcon className="w-6 h-6 text-slate-400" />
             <InstagramIcon className="w-6 h-6 text-slate-400" />
             <FacebookIcon className="w-6 h-6 text-slate-400" />
-            <span className="text-lg font-bold text-[#1e3a8a] ml-4 bg-slate-100 px-4 py-1.5 rounded-full">@oasisenergy</span>
+            <span className="text-lg font-bold text-[#1e3a8a] ml-4 bg-slate-100 px-4 py-1.5 rounded-full">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -107,7 +107,7 @@ export function TurbineEnergyCard({ side, className, id }: VisitingCardProps) {
           
           <div className="bg-white p-4 rounded-[2rem] shadow-xl border border-emerald-50 flex flex-col items-center">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={170} 
               level="H"
               fgColor="#1e3a8a"

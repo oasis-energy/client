@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function AvatarWindCard({ side, className, id }: VisitingCardProps) {
+export function AvatarWindCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-slate-50 text-slate-900 relative overflow-hidden flex flex-col items-center justify-center shadow-lg border border-slate-200 ${className || ""}`}>
@@ -63,22 +63,22 @@ export function AvatarWindCard({ side, className, id }: VisitingCardProps) {
         {/* Left Side: Personal Info */}
         <div className="flex flex-col justify-center w-3/5 pl-12 border-l-4 border-emerald-600">
           <div className="mb-10">
-            <h1 className="text-6xl font-black text-[#1e3a8a] mb-2 tracking-tight font-heading">Vinay Pratap<br/>Singh</h1>
-            <h2 className="text-2xl font-bold text-emerald-600 tracking-widest uppercase mt-4">Co-Founder</h2>
+            <h1 className="text-6xl font-black text-[#1e3a8a] mb-2 tracking-tight font-heading">{data.name.split(" ").length > 1 ? <>{data.name.split(" ")[0]}<br/>{data.name.split(" ").slice(1).join(" ")}</> : data.name}</h1>
+            <h2 className="text-2xl font-bold text-emerald-600 tracking-widest uppercase mt-4">{data.role}</h2>
           </div>
           
           <div className="space-y-7">
             <div className="flex items-center gap-5 text-slate-700">
               <Phone className="w-5 h-5 text-slate-400" />
-              <span className="text-xl font-bold tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-bold tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700">
               <Mail className="w-5 h-5 text-slate-400" />
-              <span className="text-xl font-bold tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-bold tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700">
               <Globe className="w-5 h-5 text-slate-400" />
-              <span className="text-xl font-bold tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-bold tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export function AvatarWindCard({ side, className, id }: VisitingCardProps) {
               <InstagramIcon className="w-5 h-5 text-slate-400 hover:text-[#1e3a8a] transition-colors" />
               <FacebookIcon className="w-5 h-5 text-slate-400 hover:text-[#1e3a8a] transition-colors" />
             </div>
-            <span className="text-base font-bold text-[#1e3a8a] tracking-wider">@oasisenergy</span>
+            <span className="text-base font-bold text-[#1e3a8a] tracking-wider">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ export function AvatarWindCard({ side, className, id }: VisitingCardProps) {
           
           <div className="bg-white p-6 rounded-[2rem] shadow-xl border border-slate-200 flex flex-col items-center">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={180} 
               level="H"
               fgColor="#1e3a8a"

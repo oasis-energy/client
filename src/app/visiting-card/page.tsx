@@ -1,5 +1,7 @@
 import { Metadata } from "next";
+import { cookies } from "next/headers";
 import { CardDisplay } from "@/components/visiting-card/CardDisplay";
+import { LoginForm } from "@/components/visiting-card/LoginForm";
 import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata: Metadata = {
@@ -7,7 +9,10 @@ export const metadata: Metadata = {
   description: "Digital visiting cards for Oasis Energy team members.",
 };
 
-export default function VisitingCardPage() {
+export default async function VisitingCardPage() {
+  const cookieStore = await cookies();
+  const isAuthenticated = cookieStore.get("oasis_admin_auth")?.value === "true";
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#050B14] py-12 md:py-20">
       <div className="container mx-auto px-4">
@@ -21,7 +26,7 @@ export default function VisitingCardPage() {
         </FadeIn>
         
         <FadeIn delay={0.2}>
-          <CardDisplay />
+          {isAuthenticated ? <CardDisplay /> : <LoginForm />}
         </FadeIn>
       </div>
     </div>

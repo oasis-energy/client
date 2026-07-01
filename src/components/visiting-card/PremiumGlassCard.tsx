@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function PremiumGlassCard({ side, className, id }: VisitingCardProps) {
+export function PremiumGlassCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-slate-900 text-white relative overflow-hidden flex flex-col items-center justify-center shadow-lg border-0 ${className || ""}`}>
@@ -53,8 +53,8 @@ export function PremiumGlassCard({ side, className, id }: VisitingCardProps) {
           <div className="absolute right-0 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
           
           <div className="mb-12">
-            <h1 className="text-5xl font-bold text-white mb-2 tracking-tight font-heading drop-shadow-sm">Vinay Pratap<br/>Singh</h1>
-            <h2 className="text-lg font-bold text-emerald-400 tracking-[0.2em] uppercase">Co-Founder</h2>
+            <h1 className="text-5xl font-bold text-white mb-2 tracking-tight font-heading drop-shadow-sm">{data.name.split(" ").length > 1 ? <>{data.name.split(" ")[0]}<br/>{data.name.split(" ").slice(1).join(" ")}</> : data.name}</h1>
+            <h2 className="text-lg font-bold text-emerald-400 tracking-[0.2em] uppercase">{data.role}</h2>
           </div>
           
           <div className="space-y-6">
@@ -62,21 +62,21 @@ export function PremiumGlassCard({ side, className, id }: VisitingCardProps) {
               <div className="bg-white/10 p-2.5 rounded-lg border border-white/10">
                 <Phone className="w-5 h-5 text-emerald-400" />
               </div>
-              <span className="text-xl font-medium tracking-wide drop-shadow-sm">+91 6376301828</span>
+              <span className="text-xl font-medium tracking-wide drop-shadow-sm">{data.phone}</span>
             </div>
             
             <div className="flex items-center gap-5 text-emerald-50">
               <div className="bg-white/10 p-2.5 rounded-lg border border-white/10">
                 <Mail className="w-5 h-5 text-emerald-400" />
               </div>
-              <span className="text-xl font-medium tracking-wide drop-shadow-sm">vinay@oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide drop-shadow-sm">{data.email}</span>
             </div>
             
             <div className="flex items-center gap-5 text-emerald-50">
               <div className="bg-white/10 p-2.5 rounded-lg border border-white/10">
                 <Globe className="w-5 h-5 text-emerald-400" />
               </div>
-              <span className="text-xl font-medium tracking-wide drop-shadow-sm">www.oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide drop-shadow-sm">{data.website}</span>
             </div>
             
             <div className="flex items-center gap-5 text-emerald-50 pt-2">
@@ -89,7 +89,7 @@ export function PremiumGlassCard({ side, className, id }: VisitingCardProps) {
                   <InstagramIcon className="w-5 h-5 text-slate-300 hover:text-white transition-colors" />
                   <FacebookIcon className="w-5 h-5 text-slate-300 hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm font-bold text-emerald-100 bg-white/10 px-3 py-1 rounded-full border border-white/10">@oasisenergy</span>
+                <span className="text-sm font-bold text-emerald-100 bg-white/10 px-3 py-1 rounded-full border border-white/10">{data.socialHandle}</span>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ export function PremiumGlassCard({ side, className, id }: VisitingCardProps) {
           
           <div className="bg-white/90 p-5 rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] flex flex-col items-center backdrop-blur-md">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={160} 
               level="H"
               fgColor="#1e3a8a"

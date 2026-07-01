@@ -4,7 +4,7 @@ import { Mail, Phone, Globe } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function MinimalCorporateCard({ side, className, id }: VisitingCardProps) {
+export function MinimalCorporateCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-[#f8fafc] text-slate-900 relative overflow-hidden flex flex-col items-center justify-center border shadow-sm ${className || ""}`}>
@@ -47,21 +47,21 @@ export function MinimalCorporateCard({ side, className, id }: VisitingCardProps)
       <div className="flex-1 flex px-24 py-16 z-10">
         {/* Left Side: Personal Info */}
         <div className="flex flex-col justify-center w-3/5">
-          <h1 className="text-5xl font-bold text-[#1e3a8a] mb-2 font-heading tracking-tight">Vinay Pratap Singh</h1>
-          <h2 className="text-lg font-bold text-emerald-600 mb-12 tracking-[0.2em] uppercase">Co-Founder</h2>
+          <h1 className="text-5xl font-bold text-[#1e3a8a] mb-2 font-heading tracking-tight">{data.name}</h1>
+          <h2 className="text-lg font-bold text-emerald-600 mb-12 tracking-[0.2em] uppercase">{data.role}</h2>
           
           <div className="space-y-6">
             <div className="flex items-center gap-5 text-slate-700">
               <Phone className="w-5 h-5 text-[#1e3a8a]" />
-              <span className="text-xl font-medium tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-medium tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700">
               <Mail className="w-5 h-5 text-[#1e3a8a]" />
-              <span className="text-xl font-medium tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-700">
               <Globe className="w-5 h-5 text-[#1e3a8a]" />
-              <span className="text-xl font-medium tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export function MinimalCorporateCard({ side, className, id }: VisitingCardProps)
               <InstagramIcon className="w-5 h-5 text-slate-400" />
               <FacebookIcon className="w-5 h-5 text-slate-400" />
             </div>
-            <span className="text-lg font-semibold text-slate-500 tracking-wide">@oasisenergy</span>
+            <span className="text-lg font-semibold text-slate-500 tracking-wide">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export function MinimalCorporateCard({ side, className, id }: VisitingCardProps)
           
           <div className="bg-white p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col items-center">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={150} 
               level="H"
               fgColor="#1e3a8a"

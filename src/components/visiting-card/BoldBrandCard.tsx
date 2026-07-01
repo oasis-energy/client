@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
+export function BoldBrandCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-emerald-600 text-white relative overflow-hidden flex flex-col items-center justify-center shadow-md border-0 ${className || ""}`}>
@@ -56,8 +56,8 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
         {/* Left Side: Personal Info */}
         <div className="flex flex-col justify-between w-2/3 pr-10">
           <div>
-            <h1 className="text-6xl font-black text-[#1e3a8a] mb-2 tracking-tight font-heading">Vinay Pratap Singh</h1>
-            <h2 className="text-2xl font-bold text-emerald-600 tracking-widest uppercase">Co-Founder</h2>
+            <h1 className="text-6xl font-black text-[#1e3a8a] mb-2 tracking-tight font-heading">{data.name}</h1>
+            <h2 className="text-2xl font-bold text-emerald-600 tracking-widest uppercase">{data.role}</h2>
           </div>
           
           <div className="grid grid-cols-2 gap-y-10 gap-x-12 mt-12">
@@ -67,7 +67,7 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
               </div>
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Phone</span>
-                <span className="text-xl font-bold text-slate-800">+91 6376301828</span>
+                <span className="text-xl font-bold text-slate-800">{data.phone}</span>
               </div>
             </div>
             
@@ -77,7 +77,7 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
               </div>
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email</span>
-                <span className="text-xl font-bold text-slate-800">vinay@oasis.energy</span>
+                <span className="text-xl font-bold text-slate-800">{data.email}</span>
               </div>
             </div>
             
@@ -87,7 +87,7 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
               </div>
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Website</span>
-                <span className="text-xl font-bold text-slate-800">www.oasis.energy</span>
+                <span className="text-xl font-bold text-slate-800">{data.website}</span>
               </div>
             </div>
             
@@ -103,7 +103,7 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
                     <InstagramIcon className="w-5 h-5 text-slate-700 hover:text-[#1e3a8a]" />
                     <FacebookIcon className="w-5 h-5 text-slate-700 hover:text-[#1e3a8a]" />
                   </div>
-                  <span className="text-sm font-bold text-slate-800">@oasisenergy</span>
+                  <span className="text-sm font-bold text-slate-800">{data.socialHandle}</span>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export function BoldBrandCard({ side, className, id }: VisitingCardProps) {
           <div className="bg-white p-7 rounded-[2rem] shadow-xl flex flex-col items-center border border-slate-100 relative">
             <div className="absolute top-0 right-0 w-12 h-12 bg-emerald-50 rounded-bl-[2rem] rounded-tr-[2rem]" />
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={180} 
               level="H"
               fgColor="#1e3a8a"

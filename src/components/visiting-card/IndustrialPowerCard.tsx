@@ -4,7 +4,7 @@ import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { VisitingCardProps } from "./types";
 
-export function IndustrialPowerCard({ side, className, id }: VisitingCardProps) {
+export function IndustrialPowerCard({ side, className, id, data }: VisitingCardProps) {
   if (side === "front") {
     return (
       <div id={id} className={`w-[1050px] h-[600px] bg-slate-900 text-white relative overflow-hidden flex flex-col items-center justify-center shadow-lg border-0 ${className || ""}`}>
@@ -68,20 +68,20 @@ export function IndustrialPowerCard({ side, className, id }: VisitingCardProps) 
           <div className="inline-block px-4 py-1 rounded-sm bg-amber-500 text-slate-900 font-black tracking-widest text-xs mb-6 uppercase w-max">
             Co-Founder
           </div>
-          <h1 className="text-6xl font-black text-white mb-12 tracking-tight font-heading">Vinay Pratap<br/>Singh</h1>
+          <h1 className="text-6xl font-black text-white mb-12 tracking-tight font-heading">{data.name.split(" ").length > 1 ? <>{data.name.split(" ")[0]}<br/>{data.name.split(" ").slice(1).join(" ")}</> : data.name}</h1>
           
           <div className="space-y-6">
             <div className="flex items-center gap-5 text-slate-300">
               <Phone className="w-5 h-5 text-amber-500" />
-              <span className="text-xl font-medium tracking-wide">+91 6376301828</span>
+              <span className="text-xl font-medium tracking-wide">{data.phone}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-300">
               <Mail className="w-5 h-5 text-amber-500" />
-              <span className="text-xl font-medium tracking-wide">vinay@oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.email}</span>
             </div>
             <div className="flex items-center gap-5 text-slate-300">
               <Globe className="w-5 h-5 text-amber-500" />
-              <span className="text-xl font-medium tracking-wide">www.oasis.energy</span>
+              <span className="text-xl font-medium tracking-wide">{data.website}</span>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ export function IndustrialPowerCard({ side, className, id }: VisitingCardProps) 
               <InstagramIcon className="w-5 h-5 text-slate-400 hover:text-amber-500 transition-colors" />
               <FacebookIcon className="w-5 h-5 text-slate-400 hover:text-amber-500 transition-colors" />
             </div>
-            <span className="text-base font-bold text-amber-500 tracking-wider">@oasisenergy</span>
+            <span className="text-base font-bold text-amber-500 tracking-wider">{data.socialHandle}</span>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export function IndustrialPowerCard({ side, className, id }: VisitingCardProps) 
           
           <div className="bg-white p-6 rounded-2xl shadow-2xl flex flex-col items-center">
             <QRCodeSVG 
-              value="https://www.oasis.energy" 
+              value={data.website.startsWith("http") ? data.website : "https://" + data.website} 
               size={160} 
               level="H"
               fgColor="#1e3a8a"
