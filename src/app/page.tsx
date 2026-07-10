@@ -87,12 +87,12 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-              Oasis Energy delivers world-class turbine solutions. As the authorized <strong className="text-white font-medium">Avant Garde</strong> partner, we bring the Avatar™ series directly to your doorstep.
+              Oasis Energy delivers world-class turbine solutions. As the authorized <strong className="text-white font-medium">Avant Garde</strong> partner, we bring the AVATAR™ series directly to your doorstep.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 h-14 text-lg w-full sm:w-auto shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] transition-all duration-300 group" asChild>
                 <Link href="#technology">
-                  Discover Avatar™ <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Discover AVATAR™ <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg w-full sm:w-auto bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm" asChild>
@@ -238,7 +238,7 @@ export default function Home() {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-bold text-sm uppercase tracking-widest mb-6">
                     Grid-Tied
                   </div>
-                  <h3 className="text-4xl font-bold text-primary mb-4 font-heading">Avatar™-I</h3>
+                  <h3 className="text-4xl font-bold text-primary mb-4 font-heading">AVATAR™-I</h3>
                   <p className="text-muted-foreground text-lg mb-8 leading-relaxed max-w-sm">
                     Offset massive utility costs. Connect directly to your existing facility grid. 
                     Available in 1kW to 5kW scalable modules.
@@ -260,7 +260,7 @@ export default function Home() {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm uppercase tracking-widest mb-6">
                     Stand-Alone
                   </div>
-                  <h3 className="text-4xl font-bold mb-4 font-heading">Avatar™-I Remote</h3>
+                  <h3 className="text-4xl font-bold mb-4 font-heading">AVATAR™-I Remote</h3>
                   <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed max-w-sm">
                     Total energy independence. Engineered for telecom towers, remote agricultural zones, and off-grid estates.
                   </p>
@@ -287,7 +287,7 @@ export default function Home() {
                   Power Your Business with Wind
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light">
-                  Join Oasis Energy's network. Whether you want to install an Avatar™ turbine or distribute them across Rajasthan, let's build the future.
+                  Join Oasis Energy's network. Whether you want to install an AVATAR™ turbine or distribute them across Rajasthan, let's build the future.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
                   <Button size="lg" className="h-16 px-10 text-lg rounded-full bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all" asChild>

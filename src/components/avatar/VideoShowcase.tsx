@@ -40,7 +40,7 @@ export function VideoShowcase() {
         <FadeIn className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold tracking-widest text-emerald-500 uppercase mb-3">Watch & Learn</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-heading leading-tight">
-            See Avatar™ In Action
+            See AVATAR™ In Action
           </h3>
           <p className="text-lg text-slate-600 font-light">
             Watch global coverage and interviews detailing our mission to eradicate energy poverty.

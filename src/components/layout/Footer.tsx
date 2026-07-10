@@ -67,7 +67,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Solutions</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <Link href="/avatar" className="hover:text-accent transition-colors text-emerald-500 font-medium">Avatar™ Wind Turbines</Link>
+                <Link href="/avatar" className="hover:text-accent transition-colors text-emerald-500 font-medium">AVATAR™ Wind Turbines</Link>
               </li>
               <li>
                 <Link href="/solutions/industrial" className="hover:text-accent transition-colors">Industrial Energy</Link>

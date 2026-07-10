@@ -24,7 +24,7 @@ export function WindVsSolar() {
               Wind vs <span className="text-amber-500">Solar</span>
             </h2>
             <p className="text-lg text-slate-600 font-light">
-              While solar is a great supplementary source, Avatar™ Wind Turbines offer unparalleled advantages for true 24/7 energy independence, generating more kW per SqFt.
+              While solar is a great supplementary source, AVATAR™ Wind Turbines offer unparalleled advantages for true 24/7 energy independence, generating more kW per SqFt.
             </p>
           </FadeIn>
         </div>

@@ -18,7 +18,7 @@ import {
 export function Header() {
   const aboutRoutes = [
     { name: "About Us", href: "/about", description: "Learn about Oasis Energy's mission and vision." },
-    { name: "About Avatar™", href: "/avatar", description: "Discover the revolutionary Avatar™ wind turbines." },
+    { name: "About AVATAR™", href: "/avatar", description: "Discover the revolutionary AVATAR™ wind turbines." },
   ];
 
   const mainRoutes = [
@@ -81,7 +81,7 @@ export function Header() {
               <NavigationMenuItem>
                 <Link href="/avatar" legacyBehavior passHref>
                   <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-emerald-600 font-bold hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300`}>
-                    Avatar™
+                    AVATAR™
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -140,7 +140,7 @@ export function Header() {
                     href="/avatar"
                     className="text-lg font-bold text-emerald-600 transition-colors hover:text-emerald-700"
                   >
-                    Avatar™
+                    AVATAR™
                   </Link>
                   {mainRoutes.map((route) => (
                     <Link

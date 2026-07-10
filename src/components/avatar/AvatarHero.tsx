@@ -42,7 +42,7 @@ export function AvatarHero() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 font-heading tracking-tight leading-tight">
             Meet{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A859] to-emerald-400">
-              Avatar™
+              AVATAR™
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-200 mb-10 font-light max-w-3xl mx-auto leading-relaxed">

@@ -56,7 +56,7 @@ export default function AboutPage() {
                   Oasis Energy was born from a simple realization: Rajasthan holds immense potential for renewable energy generation, yet many industries and communities still rely on fragile, carbon-heavy grids.
                 </p>
                 <p>
-                  We started by partnering with <strong>Avant Garde Energy</strong> to bring their revolutionary <strong>Avatar™</strong> wind turbines to the region. These turbines, capable of generating power day and night across any wind direction, represent the pinnacle of decentralized energy.
+                  We started by partnering with <strong>Avant Garde Energy</strong> to bring their revolutionary <strong>AVATAR™</strong> wind turbines to the region. These turbines, capable of generating power day and night across any wind direction, represent the pinnacle of decentralized energy.
                 </p>
                 <p>
                   But wind is just our foundation. Our vision is to build a comprehensive, multi-category energy portfolio—integrating solar, advanced storage, and microgrid management—to provide 100% energy independence.

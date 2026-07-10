@@ -41,7 +41,7 @@ export function TechnologyOverview() {
               Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Maximum Efficiency</span>
             </h3>
             <p className="text-lg text-slate-300 font-light">
-              Avatar™ features a revolutionary Super Efficient Axial Flux Horizontal Axis Wind Turbine (HAWT) design, scaling seamlessly from 1kW to 10kW and beyond.
+              AVATAR™ features a revolutionary Super Efficient Axial Flux Horizontal Axis Wind Turbine (HAWT) design, scaling seamlessly from 1kW to 10kW and beyond.
             </p>
           </FadeIn>
         </div>

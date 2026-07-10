@@ -19,7 +19,7 @@ export function Applications() {
             Versatile Applications
           </h2>
           <p className="text-lg text-slate-600 font-light">
-            From smart cities to high-altitude military camps, Avatar™ adapts to the environment.
+            From smart cities to high-altitude military camps, AVATAR™ adapts to the environment.
           </p>
         </FadeIn>
 
